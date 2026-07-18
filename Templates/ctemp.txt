@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include <stdbool.h>
+
+typedef long long ll;
+typedef unsigned long long ull;
+
+#define FOR(i, a, b) for(int i = a; i < b; i++)
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+
+void solve_FileName() {
+
+    // Write your solution logic here
+    
+}
+
+int main() {
+    setvbuf(stdout, NULL, _IOFBF, 4096);
+    
+    int t = 1;
+    // scanf("%d", &t); // Uncomment if the problem has multiple test cases
+    
+    while (t--) {
+        solve_FileName();
+    }
+    
+    return 0;
+}

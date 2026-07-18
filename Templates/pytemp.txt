@@ -1,0 +1,31 @@
+import sys
+import math
+import heapq
+import bisect
+from collections import defaultdict, deque, Counter
+
+input = sys.stdin.readline
+
+sys.setrecursionlimit(1 << 25)
+
+MOD = 10**9 + 7
+INF = float('inf')
+
+# Solution Function
+def solve_FileName():
+    # Example: Read a single integer
+    # n = int(input())
+    
+    # Example: Read space-separated integers
+    # a, b = map(int, input().split())
+    
+    # Example: Read a list of integers
+    # arr = list(map(int, input().split()))
+    
+    ...
+
+if __name__ == '__main__':
+    t = 1
+    # t = int(input()) # Uncomment if there are multiple test cases
+    for _ in range(t):
+        solve_FileName()
