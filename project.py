@@ -1,5 +1,8 @@
 from Parse import Parser
 import re, requests, os, sys
+from pathlib import Path
+
+pathParent = Path(__file__).resolve().parent
 
 def main():
     parser = Parser()
@@ -35,7 +38,7 @@ def get_problem_names(ID):
         sys.exit(f"\nFLAG ERROR: {error}\n")
 
 def create_lang_files_names(names, lang):
-    newnames = map(lambda name: name.replace(" ", "_"), names)
+    newnames = map(lambda name: re.sub(r"[\s)(+=*^]", "_", name), names)
     lang = lang.lower().strip()
 
     if lang == "cpp":
@@ -53,7 +56,7 @@ def open_prob_files(files, lang, direc):
     lang = lang.lower().strip()
     for file in files:
         try:
-            with open(f"../{direc}/{file}", "w") as code, open(f"Templates/{lang}temp.txt", "r") as temp:
+            with open(f"{pathParent.parent}/{direc}/{file}", "w") as code, open(f"{pathParent}/Templates/{lang}temp.txt", "r") as temp:
                 lines = temp.read()
                 nlines = re.sub("FileName", file.removesuffix(f".{lang}"), lines)
                 code.write(nlines)
@@ -62,7 +65,7 @@ def open_prob_files(files, lang, direc):
             
 def open_directory(direc):
     try:
-        os.mkdir(f"../{direc}")
+        os.mkdir(f"{pathParent.parent}/{direc}")
     except FileExistsError:
         error = f"\nFLAG ERROR: {direc} ALREADY exists in this path (please use another folder name).\n"
         sys.exit(error)
